@@ -32,18 +32,27 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative h-[600px] flex items-center justify-center bg-gradient-hero overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img src={heroImage} alt="Odonto Prime" className="w-full h-full object-cover" />
+          <img
+            src={heroImage}
+            alt="Odonto Prime"
+            className="w-full h-full object-cover"
+          />
         </div>
         <div className="relative z-10 container mx-auto px-4 text-center animate-fade-in">
           <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground mb-6">
             Sorria com a confiança de quem é prime!
           </h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto">
-            Odontologia de excelência com tecnologia de ponta e profissionais especializados
+            Odontologia de excelência com tecnologia de ponta e profissionais
+            especializados
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/planos">
-              <Button size="lg" variant="default" className="w-full bg-accent hover:bg-accent/90">
+              <Button
+                size="lg"
+                variant="default"
+                className="w-full bg-accent hover:bg-accent/90"
+              >
                 Conhecer Planos
               </Button>
             </Link>
@@ -68,16 +77,44 @@ const Index = () => {
               <CardHeader className="text-center">
                 <Users className="w-12 h-12 mx-auto mb-4 text-accent" />
                 <CardTitle className="text-2xl">Plano Familiar</CardTitle>
-                <CardDescription className="text-lg">Até 5 pessoas</CardDescription>
+                <CardDescription className="text-lg">
+                  O cuidado que sua família merece
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="text-center mb-6">
-                  <span className="text-4xl font-bold text-primary">R$ 269,90</span>
+                  <span className="text-4xl font-bold text-primary">
+                    R$ 269,90
+                  </span>
                   <span className="text-muted-foreground">/mês</span>
                 </div>
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Todos os benefícios do plano individual incluidos</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Cobertura de até 4 pessoas</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Acompanhamento personalizado</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Avaliação preventiva</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Orientação sobre higiene bucal</span>
+                  </li>
+                </ul>
 
                 <Link to="/planos" className="block mt-6">
-                  <Button className="w-full bg-accent hover:bg-accent/90">Ver Detalhes</Button>
+                  <Button className="w-full bg-accent hover:bg-accent/90">
+                    Ver Detalhes
+                  </Button>
                 </Link>
               </CardContent>
             </Card>
@@ -86,16 +123,45 @@ const Index = () => {
               <CardHeader className="text-center">
                 <Award className="w-12 h-12 mx-auto mb-4 text-accent" />
                 <CardTitle className="text-2xl">Plano Individual</CardTitle>
-                <CardDescription className="text-lg">Cobertura completa</CardDescription>
-              </CardHeader>
-              <CardContent>
                 <div className="text-center mb-6">
-                  <span className="text-4xl font-bold text-primary">R$ 99,90</span>
+                  <span className="text-4xl font-bold text-primary">
+                    R$ 99,90
+                  </span>
                   <span className="text-muted-foreground">/mês</span>
                 </div>
-                
+
+                <CardDescription className="text-lg">
+                  Ideal para quem busca cuidados odontológicos completos
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Consultas ilimitadas com dentista</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>2 limpezas por ano</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Atendimento de emergência 24h</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Avaliação preventiva</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Orientação sobre higiene bucal</span>
+                  </li>
+                </ul>
+
                 <Link to="/planos" className="block mt-6">
-                  <Button className="w-full bg-accent hover:bg-accent/90">Ver Detalhes</Button>
+                  <Button className="w-full bg-accent hover:bg-accent/90">
+                    Ver Detalhes
+                  </Button>
                 </Link>
               </CardContent>
             </Card>
@@ -104,16 +170,48 @@ const Index = () => {
               <CardHeader className="text-center">
                 <Shield className="w-12 h-12 mx-auto mb-4 text-accent" />
                 <CardTitle className="text-2xl">Plano Empresarial</CardTitle>
-                <CardDescription className="text-lg">A partir de 10 pessoas</CardDescription>
+                <CardDescription className="text-lg">
+                  Os cuidados essenciais para sua equipe
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="text-center mb-6">
-                  <span className="text-4xl font-bold text-primary">R$ 299,90</span>
+                  <span className="text-4xl font-bold text-primary">
+                    R$ 299,90
+                  </span>
                   <span className="text-muted-foreground">/pessoa</span>
                 </div>
-                
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Planos a partir de 5 colaboradores</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Gestão online simplificada</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Atendimento prioritário</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Relatórios mensais de utilização</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Palestra educativas na empresa</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="text-success" size={20} />
+                    <span>Campanha de prevenção</span>
+                  </li>
+                </ul>
+
                 <Link to="/planos" className="block mt-6">
-                  <Button className="w-full bg-accent hover:bg-accent/90">Ver Detalhes</Button>
+                  <Button className="w-full bg-accent hover:bg-accent/90">
+                    Ver Detalhes
+                  </Button>
                 </Link>
               </CardContent>
             </Card>
@@ -143,7 +241,9 @@ const Index = () => {
                     <Input
                       id="nome"
                       value={formData.nome}
-                      onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, nome: e.target.value })
+                      }
                       required
                     />
                   </div>
@@ -153,7 +253,9 @@ const Index = () => {
                       id="telefone"
                       type="tel"
                       value={formData.telefone}
-                      onChange={(e) => setFormData({ ...formData, telefone: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, telefone: e.target.value })
+                      }
                       required
                     />
                   </div>
@@ -163,11 +265,16 @@ const Index = () => {
                       id="mensagem"
                       rows={4}
                       value={formData.mensagem}
-                      onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, mensagem: e.target.value })
+                      }
                       placeholder="Descreva brevemente o motivo da consulta"
                     />
                   </div>
-                  <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
+                  <Button
+                    type="submit"
+                    className="w-full bg-accent hover:bg-accent/90"
+                  >
                     Solicitar Agendamento
                   </Button>
                 </form>
@@ -193,8 +300,9 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-center text-muted-foreground">
-                  Proporcionar saúde bucal de excelência com atendimento humanizado, utilizando
-                  tecnologia de ponta e profissionais altamente qualificados.
+                  Proporcionar saúde bucal de excelência com atendimento
+                  humanizado, utilizando tecnologia de ponta e profissionais
+                  altamente qualificados.
                 </p>
               </CardContent>
             </Card>
@@ -205,8 +313,8 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-center text-muted-foreground">
-                  Ser referência em odontologia no Brasil, reconhecida pela qualidade dos serviços
-                  e pela satisfação dos nossos pacientes.
+                  Ser referência em odontologia no Brasil, reconhecida pela
+                  qualidade dos serviços e pela satisfação dos nossos pacientes.
                 </p>
               </CardContent>
             </Card>
@@ -259,8 +367,9 @@ const Index = () => {
                   Como funciona o agendamento de consultas?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Você pode agendar através do nosso site, telefone ou WhatsApp. Nossa equipe entrará
-                  em contato para confirmar o horário disponível.
+                  Você pode agendar através do nosso site, telefone ou WhatsApp.
+                  Nossa equipe entrará em contato para confirmar o horário
+                  disponível.
                 </AccordionContent>
               </AccordionItem>
 
@@ -269,8 +378,8 @@ const Index = () => {
                   Os planos cobrem emergências?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Sim! Todos os nossos planos incluem atendimento de emergência 24h para situações
-                  urgentes como dores intensas ou traumas.
+                  Sim! Todos os nossos planos incluem atendimento de emergência
+                  24h para situações urgentes como dores intensas ou traumas.
                 </AccordionContent>
               </AccordionItem>
 
@@ -279,8 +388,9 @@ const Index = () => {
                   Qual a carência para usar o plano?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Não há carência para consultas e procedimentos básicos. Para tratamentos mais
-                  complexos, a carência varia de 30 a 180 dias conforme o plano escolhido.
+                  Não há carência para consultas e procedimentos básicos. Para
+                  tratamentos mais complexos, a carência varia de 30 a 180 dias
+                  conforme o plano escolhido.
                 </AccordionContent>
               </AccordionItem>
 
@@ -289,8 +399,8 @@ const Index = () => {
                   Posso incluir dependentes no plano?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Sim! Nosso Plano Familiar permite incluir até 5 dependentes. Para o Plano
-                  Empresarial, não há limite de dependentes.
+                  Sim! Nosso Plano Familiar permite incluir até 5 dependentes.
+                  Para o Plano Empresarial, não há limite de dependentes.
                 </AccordionContent>
               </AccordionItem>
 
@@ -299,8 +409,9 @@ const Index = () => {
                   Aceitam convênios médicos?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Trabalhamos com diversos convênios odontológicos. Entre em contato para verificar
-                  se o seu convênio é aceito em nossa clínica.
+                  Trabalhamos com diversos convênios odontológicos. Entre em
+                  contato para verificar se o seu convênio é aceito em nossa
+                  clínica.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -332,8 +443,10 @@ const Index = () => {
                   <div>
                     <p className="font-semibold">Odonto Prime</p>
                     <p className="text-muted-foreground">
-                      Av. Adhemar de Barros, 1307<br />
-                      Guarujá, São Paulo - SP<br />
+                      Av. Adhemar de Barros, 1307
+                      <br />
+                      Guarujá, São Paulo - SP
+                      <br />
                       CEP: 11430-000
                     </p>
                   </div>
@@ -350,7 +463,8 @@ const Index = () => {
                   <div>
                     <p className="font-semibold">Horário</p>
                     <p className="text-muted-foreground">
-                      Segunda a Sexta: 8h às 18h<br />
+                      Segunda a Sexta: 8h às 18h
+                      <br />
                       Sábado: 8h às 12h
                     </p>
                   </div>

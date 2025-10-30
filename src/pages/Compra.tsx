@@ -1,22 +1,47 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
-import { ShoppingCart, CreditCard, Smartphone, Barcode, DollarSign } from "lucide-react";
+import {
+  ShoppingCart,
+  CreditCard,
+  Smartphone,
+  Barcode,
+  DollarSign,
+} from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
 
 const compraSchema = z.object({
-  nomeCompleto: z.string().trim().min(3, "Nome deve ter pelo menos 3 caracteres").max(100),
+  nomeCompleto: z
+    .string()
+    .trim()
+    .min(3, "Nome deve ter pelo menos 3 caracteres")
+    .max(100),
   telefone: z.string().trim().min(10, "Telefone inválido").max(15),
   email: z.string().trim().email("Email inválido").max(255),
-  cpf: z.string().trim().regex(/^\d{11}$/, "CPF deve conter 11 dígitos"),
+  cpf: z
+    .string()
+    .trim()
+    .regex(/^\d{11}$/, "CPF deve conter 11 dígitos"),
   plano: z.string().min(1, "Selecione um plano"),
   formaPagamento: z.string().min(1, "Selecione a forma de pagamento"),
   tipoPagamento: z.string().min(1, "Selecione o tipo de pagamento"),
@@ -37,25 +62,28 @@ const Compra = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const servicos = [
-    { id: "Plano", nome: "Plano Individual", valor: 99.90 },
-    { id: "Plano", nome: "Plano Familiar", valor: 269.90 },
-    { id: "Plano", nome: "Plano Empresarial", valor: 299.90 },
+    { id: "Plano", nome: "Plano Individual", valor: 99.9 },
+    { id: "Plano", nome: "Plano Familiar", valor: 269.9 },
+    { id: "Plano", nome: "Plano Empresarial", valor: 299.9 },
   ];
 
   const servicoSelecionado = servicos.find((s) => s.id === formData.servico);
   const valorTotal = servicoSelecionado?.valor || 0;
-  const valorParcela = formData.tipoPagamento === "parcelado" 
-    ? valorTotal / parseInt(formData.parcelas) 
-    : valorTotal;
+  const valorParcela =
+    formData.tipoPagamento === "parcelado"
+      ? valorTotal / parseInt(formData.parcelas)
+      : valorTotal;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     try {
       compraSchema.parse(formData);
       setErrors({});
-      toast.success("Pedido realizado com sucesso! Enviamos os detalhes para seu email.");
-      
+      toast.success(
+        "Pedido realizado com sucesso! Enviamos os detalhes para seu email."
+      );
+
       // Reset form
       setFormData({
         nomeCompleto: "",
@@ -127,8 +155,12 @@ const Compra = () => {
             <div className="lg:col-span-2">
               <Card className="shadow-card">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Informações Pessoais</CardTitle>
-                  <CardDescription>Preencha todos os campos obrigatórios</CardDescription>
+                  <CardTitle className="text-2xl">
+                    Informações Pessoais
+                  </CardTitle>
+                  <CardDescription>
+                    Preencha todos os campos obrigatórios
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -138,12 +170,18 @@ const Compra = () => {
                         <Input
                           id="nomeCompleto"
                           value={formData.nomeCompleto}
-                          onChange={(e) => handleChange("nomeCompleto", e.target.value)}
+                          onChange={(e) =>
+                            handleChange("nomeCompleto", e.target.value)
+                          }
                           placeholder="Digite seu nome completo"
-                          className={errors.nomeCompleto ? "border-destructive" : ""}
+                          className={
+                            errors.nomeCompleto ? "border-destructive" : ""
+                          }
                         />
                         {errors.nomeCompleto && (
-                          <p className="text-sm text-destructive mt-1">{errors.nomeCompleto}</p>
+                          <p className="text-sm text-destructive mt-1">
+                            {errors.nomeCompleto}
+                          </p>
                         )}
                       </div>
 
@@ -154,12 +192,18 @@ const Compra = () => {
                             id="telefone"
                             type="tel"
                             value={formData.telefone}
-                            onChange={(e) => handleChange("telefone", e.target.value)}
+                            onChange={(e) =>
+                              handleChange("telefone", e.target.value)
+                            }
                             placeholder="(11) 99999-9999"
-                            className={errors.telefone ? "border-destructive" : ""}
+                            className={
+                              errors.telefone ? "border-destructive" : ""
+                            }
                           />
                           {errors.telefone && (
-                            <p className="text-sm text-destructive mt-1">{errors.telefone}</p>
+                            <p className="text-sm text-destructive mt-1">
+                              {errors.telefone}
+                            </p>
                           )}
                         </div>
 
@@ -168,13 +212,20 @@ const Compra = () => {
                           <Input
                             id="cpf"
                             value={formData.cpf}
-                            onChange={(e) => handleChange("cpf", e.target.value.replace(/\D/g, ""))}
+                            onChange={(e) =>
+                              handleChange(
+                                "cpf",
+                                e.target.value.replace(/\D/g, "")
+                              )
+                            }
                             placeholder="00000000000"
                             maxLength={11}
                             className={errors.cpf ? "border-destructive" : ""}
                           />
                           {errors.cpf && (
-                            <p className="text-sm text-destructive mt-1">{errors.cpf}</p>
+                            <p className="text-sm text-destructive mt-1">
+                              {errors.cpf}
+                            </p>
                           )}
                         </div>
                       </div>
@@ -185,12 +236,16 @@ const Compra = () => {
                           id="email"
                           type="email"
                           value={formData.email}
-                          onChange={(e) => handleChange("email", e.target.value)}
+                          onChange={(e) =>
+                            handleChange("email", e.target.value)
+                          }
                           placeholder="seu@email.com"
                           className={errors.email ? "border-destructive" : ""}
                         />
                         {errors.email && (
-                          <p className="text-sm text-destructive mt-1">{errors.email}</p>
+                          <p className="text-sm text-destructive mt-1">
+                            {errors.email}
+                          </p>
                         )}
                       </div>
                     </div>
@@ -201,9 +256,13 @@ const Compra = () => {
                       <Label htmlFor="servico">Serviço Desejado *</Label>
                       <Select
                         value={formData.servico}
-                        onValueChange={(value) => handleChange("servico", value)}
+                        onValueChange={(value) =>
+                          handleChange("servico", value)
+                        }
                       >
-                        <SelectTrigger className={errors.servico ? "border-destructive" : ""}>
+                        <SelectTrigger
+                          className={errors.servico ? "border-destructive" : ""}
+                        >
                           <SelectValue placeholder="Selecione o serviço" />
                         </SelectTrigger>
                         <SelectContent>
@@ -215,7 +274,9 @@ const Compra = () => {
                         </SelectContent>
                       </Select>
                       {errors.servico && (
-                        <p className="text-sm text-destructive mt-1">{errors.servico}</p>
+                        <p className="text-sm text-destructive mt-1">
+                          {errors.servico}
+                        </p>
                       )}
                     </div>
 
@@ -225,44 +286,61 @@ const Compra = () => {
                       <Label>Forma de Pagamento *</Label>
                       <RadioGroup
                         value={formData.formaPagamento}
-                        onValueChange={(value) => handleChange("formaPagamento", value)}
+                        onValueChange={(value) =>
+                          handleChange("formaPagamento", value)
+                        }
                         className="space-y-3"
                       >
                         <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50 cursor-pointer">
                           <RadioGroupItem value="credito" id="credito" />
-                          <Label htmlFor="credito" className="cursor-pointer flex items-center gap-2">
+                          <Label
+                            htmlFor="credito"
+                            className="cursor-pointer flex items-center gap-2"
+                          >
                             <CreditCard className="w-5 h-5 text-accent" />
                             Cartão de Crédito
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50 cursor-pointer">
                           <RadioGroupItem value="debito" id="debito" />
-                          <Label htmlFor="debito" className="cursor-pointer flex items-center gap-2">
+                          <Label
+                            htmlFor="debito"
+                            className="cursor-pointer flex items-center gap-2"
+                          >
                             <CreditCard className="w-5 h-5 text-accent" />
                             Cartão de Débito
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50 cursor-pointer">
                           <RadioGroupItem value="pix" id="pix" />
-                          <Label htmlFor="pix" className="cursor-pointer flex items-center gap-2">
+                          <Label
+                            htmlFor="pix"
+                            className="cursor-pointer flex items-center gap-2"
+                          >
                             <Smartphone className="w-5 h-5 text-accent" />
                             PIX
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50 cursor-pointer">
                           <RadioGroupItem value="boleto" id="boleto" />
-                          <Label htmlFor="boleto" className="cursor-pointer flex items-center gap-2">
+                          <Label
+                            htmlFor="boleto"
+                            className="cursor-pointer flex items-center gap-2"
+                          >
                             <Barcode className="w-5 h-5 text-accent" />
                             Boleto Bancário
                           </Label>
                         </div>
                       </RadioGroup>
                       {errors.formaPagamento && (
-                        <p className="text-sm text-destructive">{errors.formaPagamento}</p>
+                        <p className="text-sm text-destructive">
+                          {errors.formaPagamento}
+                        </p>
                       )}
                     </div>
 
-                    {(formData.formaPagamento === "credito" || formData.formaPagamento === "boleto") && (
+                    {(formData.formaPagamento === "credito" ||
+                      formData.formaPagamento === "boleto") && (
                       <>
                         <Separator />
                         <div className="space-y-4">
@@ -278,20 +356,28 @@ const Compra = () => {
                             className="space-y-3"
                           >
                             <div className="flex items-center space-x-3">
-                              <RadioGroupItem value="vista" id="vista" />
+                              <RadioGroupItem value="avista" id="avista" />
                               <Label htmlFor="vista" className="cursor-pointer">
                                 À Vista
                               </Label>
                             </div>
                             <div className="flex items-center space-x-3">
-                              <RadioGroupItem value="parcelado" id="parcelado" />
-                              <Label htmlFor="parcelado" className="cursor-pointer">
+                              <RadioGroupItem
+                                value="parcelado"
+                                id="parcelado"
+                              />
+                              <Label
+                                htmlFor="parcelado"
+                                className="cursor-pointer"
+                              >
                                 Parcelado
                               </Label>
                             </div>
                           </RadioGroup>
                           {errors.tipoPagamento && (
-                            <p className="text-sm text-destructive">{errors.tipoPagamento}</p>
+                            <p className="text-sm text-destructive">
+                              {errors.tipoPagamento}
+                            </p>
                           )}
                         </div>
 
@@ -300,17 +386,25 @@ const Compra = () => {
                             <Label htmlFor="parcelas">Número de Parcelas</Label>
                             <Select
                               value={formData.parcelas}
-                              onValueChange={(value) => handleChange("parcelas", value)}
+                              onValueChange={(value) =>
+                                handleChange("parcelas", value)
+                              }
                             >
                               <SelectTrigger>
                                 <SelectValue />
                               </SelectTrigger>
                               <SelectContent>
-                                {[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num) => (
-                                  <SelectItem key={num} value={num.toString()}>
-                                    {num}x de R$ {(valorTotal / num).toFixed(2)}
-                                  </SelectItem>
-                                ))}
+                                {[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(
+                                  (num) => (
+                                    <SelectItem
+                                      key={num}
+                                      value={num.toString()}
+                                    >
+                                      {num}x de R${" "}
+                                      {(valorTotal / num).toFixed(2)}
+                                    </SelectItem>
+                                  )
+                                )}
                               </SelectContent>
                             </Select>
                           </div>
@@ -318,9 +412,9 @@ const Compra = () => {
                       </>
                     )}
 
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-accent hover:bg-accent/90" 
+                    <Button
+                      type="submit"
+                      className="w-full bg-accent hover:bg-accent/90"
                       size="lg"
                       disabled={!servicoSelecionado}
                     >
@@ -342,12 +436,18 @@ const Compra = () => {
                     <>
                       <div className="space-y-2">
                         <div className="flex justify-between">
-                          <span className="text-muted-foreground">Serviço:</span>
-                          <span className="font-semibold">{servicoSelecionado.nome}</span>
+                          <span className="text-muted-foreground">
+                            Serviço:
+                          </span>
+                          <span className="font-semibold">
+                            {servicoSelecionado.nome}
+                          </span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-muted-foreground">Valor:</span>
-                          <span className="font-semibold">R$ {valorTotal.toFixed(2)}</span>
+                          <span className="font-semibold">
+                            R$ {valorTotal.toFixed(2)}
+                          </span>
                         </div>
                       </div>
 
@@ -356,21 +456,29 @@ const Compra = () => {
                           <Separator />
                           <div className="space-y-2">
                             <div className="flex justify-between items-center">
-                              <span className="text-muted-foreground">Pagamento:</span>
+                              <span className="text-muted-foreground">
+                                Pagamento:
+                              </span>
                               <span className="font-semibold flex items-center gap-2">
                                 {getPaymentIcon()}
-                                {formData.formaPagamento === "credito" && "Crédito"}
-                                {formData.formaPagamento === "debito" && "Débito"}
+                                {formData.formaPagamento === "credito" &&
+                                  "Crédito"}
+                                {formData.formaPagamento === "debito" &&
+                                  "Débito"}
                                 {formData.formaPagamento === "pix" && "PIX"}
-                                {formData.formaPagamento === "boleto" && "Boleto"}
+                                {formData.formaPagamento === "boleto" &&
+                                  "Boleto"}
                               </span>
                             </div>
 
                             {formData.tipoPagamento === "parcelado" && (
                               <div className="flex justify-between">
-                                <span className="text-muted-foreground">Parcelas:</span>
+                                <span className="text-muted-foreground">
+                                  Parcelas:
+                                </span>
                                 <span className="font-semibold">
-                                  {formData.parcelas}x de R$ {valorParcela.toFixed(2)}
+                                  {formData.parcelas}x de R${" "}
+                                  {valorParcela.toFixed(2)}
                                 </span>
                               </div>
                             )}
@@ -389,15 +497,16 @@ const Compra = () => {
                         </div>
                         {formData.tipoPagamento === "parcelado" && (
                           <p className="text-sm text-muted-foreground mt-2 text-center">
-                            ou {formData.parcelas}x de R$ {valorParcela.toFixed(2)}
+                            ou {formData.parcelas}x de R${" "}
+                            {valorParcela.toFixed(2)}
                           </p>
                         )}
                       </div>
 
                       <div className="bg-muted p-3 rounded-lg">
                         <p className="text-xs text-muted-foreground">
-                          Após a confirmação do pedido, você receberá um email com todas as
-                          instruções e o orçamento detalhado.
+                          Após a confirmação do pedido, você receberá um email
+                          com todas as instruções e o orçamento detalhado.
                         </p>
                       </div>
                     </>
