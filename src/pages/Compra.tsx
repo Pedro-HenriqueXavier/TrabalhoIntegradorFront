@@ -61,13 +61,13 @@ const Compra = () => {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const servicos = [
-    { id: "Plano", nome: "Plano Individual", valor: 99.9 },
-    { id: "Plano", nome: "Plano Familiar", valor: 269.9 },
-    { id: "Plano", nome: "Plano Empresarial", valor: 299.9 },
+   const servicos = [
+    { id: "limpeza", nome: "Plano Familiar", valor: 269.90 },
+    { id: "clareamento", nome: "Plano Individual", valor: 99.90 },
+    { id: "restauracao", nome: "Plano Empresarial", valor: 119.00, texto: ("/pessoa")},
   ];
 
-  const servicoSelecionado = servicos.find((s) => s.id === formData.servico);
+  const servicoSelecionado = servicos.find((s) => s.id === formData.servico );
   const valorTotal = servicoSelecionado?.valor || 0;
   const valorParcela =
     formData.tipoPagamento === "parcelado"
