@@ -23,21 +23,21 @@ const Planos = () => {
         </div>
       </section>
 
-      {/* Planos Familiares */}
+
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <Users className="w-16 h-16 mx-auto mb-4 text-accent" />
             <h2 className="text-4xl font-bold text-foreground mb-4">
-              Plano Familiar
+              Planos Odontotológicos
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Segurança, qualidade e economia para toda a família
+              Escolha o plano ideal
             </p>
           </div>
 
-          <div className="max-w-md ml-auto">
-            <Card className="hover:shadow-card-hover transition-shadow duration-300  border-accent border-2">
+          <div className="flex gap-20 flex-row grid-rows-3 justify-center">
+            <Card className="hover:shadow-card-hover transition-shadow duration-300  border-accent border-2 w-96">
               <CardHeader className="text-center">
                 <Users className="w-12 h-12 mx-auto mb-4 text-accent" />
                 <CardTitle className="text-2xl">Plano Familiar</CardTitle>
@@ -47,11 +47,19 @@ const Planos = () => {
               </CardHeader>
               <CardContent>
                 <div className="text-center mb-6 pb-6 border-b">
-                  <span className="text-5xl font-bold text-primary">
+                  <span className="text-4xl font-bold text-primary">
                     R$ 269.90
                   </span>
                   <span className="text-muted-foreground">/mês</span>
                 </div>
+                 <ul className="space-y-3">
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Todos os benefícios do plano individual incluidos</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Cobertura de até 4 pessoas</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Acompanhamento personalizado</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Avaliação preventiva</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Orientação sobre higiene bucal</li>
+                  </ul>
+
                 <ul className="space-y-3 mb-6"></ul>
                 <Link to="/compra">
                   <Button className="w-full bg-accent hover:bg-accent/90">
@@ -60,39 +68,30 @@ const Planos = () => {
                 </Link>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
 
-      {/* Planos individuais */}
-      <section className="py-20 bg-secondary">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <Award className="w-16 h-16 mx-auto mb-4 text-accent" />
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Plano Individual
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Economia com pagamento anual e benefícios exclusivos
-            </p>
-          </div>
-
-          <div className="max-w-2xl mr-auto">
-            <Card className="hover:shadow-card-hover transition-shadow duration-300 border-accent border-2">
+                <Card className="hover:shadow-card-hover transition-shadow duration-300 border-accent border-2 w-96">
               <CardHeader className="text-center">
+                                <Users className="w-12 h-12 mx-auto mb-4 text-accent" />
+
                 <CardTitle className="text-2xl">Plano individual</CardTitle>
                 <CardDescription className="text-lg">
                   Individual
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-center mb-6 pb-6 border-b">
-                  <div className="text-5xl font-bold text-primary mb-2">
+                <div className="text-center mb-6 pb-6 border-b flex flex-row justify-center items-baseline gap-2">
+                  <span className="text-4xl font-bold text-primary mb-2">
                     R$ 99.90
-                  </div>
-                  <div className="text-muted-foreground text-sm">/mês</div>
-                  <div className="text-sm text-accent mt-2"></div>
+                  </span>
+                  <div className="text-muted-foreground">/mês</div>
                 </div>
+                 <ul className="space-y-3">
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Consultas ilimitadas com dentista</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />2 limpezas por ano</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Atendimento de emergência 24h</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Avaliação preventiva</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Orientação sobre higiene bucal</li>
+                  </ul>
                 <ul className="space-y-3 mb-6"></ul>
                 <Link to="/compra">
                   <Button className="w-full bg-accent hover:bg-accent/90">
@@ -101,27 +100,11 @@ const Planos = () => {
                 </Link>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
 
-      {/* Plano Empresarial */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <Shield className="w-16 h-16 mx-auto mb-4 text-accent" />
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Plano Empresarial
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Cuide da saúde bucal dos seus colaboradores com benefícios
-              exclusivos
-            </p>
-          </div>
-
-          <div className="max-w-2xl mx-auto">
-            <Card className="hover:shadow-card-hover transition-shadow duration-300 border-accent border-2">
+             <Card className="hover:shadow-card-hover transition-shadow duration-300 border-accent border-2 w-96">
               <CardHeader className="text-center">
+                                <Users className="w-12 h-12 mx-auto mb-4 text-accent" />
+
                 <CardTitle className="text-2xl">Empresarial</CardTitle>
                 <CardDescription className="text-lg">
                   10 a 30 colaboradores
@@ -134,6 +117,14 @@ const Planos = () => {
                   </span>
                   <span className="text-muted-foreground">/pessoa</span>
                 </div>
+                <ul className="space-y-3">
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Planos a partir de 5 colaboradores</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Gestão online simplificada</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Atendimento prioritário</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Relatórios mensais de utilização</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Palestra educativas na empresa</li>
+                    <li className="flex items-center gap-2"><CheckCircle2 className="text-accent" size={20} />Campanha de prevenção</li>
+                </ul>
                 <ul className="space-y-3 mb-6"></ul>
                 <Link to="/compra">
                   <Button className="w-full bg-accent hover:bg-accent/90">
@@ -145,7 +136,6 @@ const Planos = () => {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );
